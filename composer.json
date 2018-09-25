@@ -1,0 +1,18 @@
+{
+  "name": "popo1h/phaadmin-core",
+  "authors": [
+    {
+      "name": "popo1h"
+    }
+  ],
+  "require": {
+    "popo1h/support": "*"
+  },
+  "autoload": {
+    "psr-4": {
+      "Popo1h\\PhaadminCore\\": "src/"
+    },
+    "files": [
+    ]
+  }
+}
