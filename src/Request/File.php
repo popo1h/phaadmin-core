@@ -9,7 +9,7 @@ class File implements StringPackInterface
 {
     use JsonAutoTrait {
         packToString as private commonPackToString;
-        unpackString as private static commonUnpackString;
+        unpackString as private commonUnpackString;
     }
 
     /**
@@ -85,7 +85,7 @@ class File implements StringPackInterface
     private function getFileContent()
     {
         if (!isset($this->fileContent)) {
-            $this->fileContent = file_get_contents($this->fileName);
+            $this->fileContent = base64_encode(file_get_contents($this->fileName));
         }
 
         return $this->fileContent;
@@ -99,14 +99,14 @@ class File implements StringPackInterface
 
         $this->fileName = $dir . DIRECTORY_SEPARATOR . $fileName;
 
-        file_put_contents($this->fileName, $this->fileContent);
+        file_put_contents($this->fileName, base64_decode($this->fileContent));
     }
 
     public function packToString()
     {
         $this->getFileContent();
 
-        $this->commonPackToString();
+        return $this->commonPackToString();
     }
 
     public static function unpackString($string)
