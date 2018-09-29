@@ -46,6 +46,7 @@ comment参数:
 | doc-enable | 值为true, 生成接口文档 |
 | doc-title | 接口标题, 不填则使用action-title |
 | doc-type | 接口类型(生成文档用), post或get |
+| doc-consumes | 接口文档参数类型, 如:application/x-www-form-urlencoded, multipart/form-data |
 | doc-param | 接口参数信息(生成文档用), 配置为name=value的形式, 空格隔开 |
 | doc-return | 接口返回信息(生成文档用), 配置为name=value的形式, 空格隔开 |
 | doc-tag | 接口标签 |
