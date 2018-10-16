@@ -18,14 +18,14 @@ class ImageResponse extends Response
      */
     public function __construct($imageContent)
     {
-        $this->imageContent = $imageContent;
+        $this->imageContent = base64_encode($imageContent);
     }
 
     public function output()
     {
         $responseOutput = new ResponseOutput();
 
-        $responseOutput->setContent($this->imageContent);
+        $responseOutput->setContent(base64_decode($this->imageContent));
 
         $header = [];
         $header['Content-Type'] = 'image/jpg';

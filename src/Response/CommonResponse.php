@@ -28,7 +28,7 @@ class CommonResponse extends Response
      */
     public function __construct($content, $statusCode = 200, $headers = [])
     {
-        $this->content = $content;
+        $this->content = base64_encode($content);
         $this->statusCode = $statusCode;
         $this->headers = $headers;
     }
@@ -38,7 +38,7 @@ class CommonResponse extends Response
         $responseOutput = new ResponseOutput();
 
         $responseOutput->setStatusCode($this->statusCode);
-        $responseOutput->setContent($this->content);
+        $responseOutput->setContent(base64_decode($this->content));
         $responseOutput->setHeaders($this->headers);
 
         return $responseOutput;

@@ -24,14 +24,14 @@ class DownloadResponse extends Response
     public function __construct($filename, $fileContent)
     {
         $this->filename = $filename;
-        $this->fileContent = $fileContent;
+        $this->fileContent = base64_encode($fileContent);
     }
 
     public function output()
     {
         $responseOutput = new ResponseOutput();
 
-        $responseOutput->setContent($this->fileContent);
+        $responseOutput->setContent(base64_decode($this->fileContent));
 
         $header = [];
         $header['Content-Type'] = 'application/octet-stream';
